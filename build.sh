@@ -12,13 +12,13 @@ source poky/oe-init-build-env
 CONFLINE="MACHINE = \"raspberrypi4\""
 
 #Create image of the type rpi-sdimg
-IMAGE="IMAGE_FSTYPES = \"wic.bz2\""
+IMAGE="IMAGE_FSTYPES = \"tar.xz ext3 rpi-sdimg\""
 
 #Set GPU memory as minimum
 MEMORY="GPU_MEM = \"16\""
 
 #Licence
-LICENCE="LICENSE_FLAGS_WHITELIST = \"commercial\""
+LICENCE="LICENSE_FLAGS_ACCEPTED = \"synaptics-killswitch\""
 
 cat conf/local.conf | grep "${CONFLINE}" > /dev/null
 local_conf_info=$?
