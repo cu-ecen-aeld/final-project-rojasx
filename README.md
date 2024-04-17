@@ -6,6 +6,8 @@ I am working alone on this project so this is the general project overview.
 
 Link to [Final Project Overview](https://github.com/cu-ecen-aeld/final-project-rojasx/wiki/Project-Overview)
 
+Link to [Final Project "Force App" Code Repo](https://github.com/rojasx/final-project-assignment-forceapp)
+
 Link to [Schedule Table](https://github.com/users/rojasx/projects/2)
 
 # yocto-assignments-base
