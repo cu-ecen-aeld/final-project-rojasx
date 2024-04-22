@@ -1,9 +1,12 @@
 inherit core-image
 
+REQUIRED_DISTRO_FEATURES += "bluetooth"
+
 CORE_IMAGE_EXTRA_INSTALL += "openssh openssl openssh-sftp-server"
 CORE_IMAGE_EXTRA_INSTALL += "ethtool"
 CORE_IMAGE_EXTRA_INSTALL += "python3"
 CORE_IMAGE_EXTRA_INSTALL += "rpi-gpio"
+CORE_IMAGE_EXTRA_INSTALL += "bluez5"
 CORE_IMAGE_EXTRA_INSTALL += "forceapp"
 
 inherit extrausers
