@@ -23,7 +23,7 @@ MEMORY="GPU_MEM = \"16\""
 #Licence
 LICENCE="LICENSE_FLAGS_ACCEPTED = \"synaptics-killswitch\""
 
-# INIT_MAN="INIT_MANAGER = \"systemd\""
+INIT_MAN="INIT_MANAGER = \"systemd\""
 
 cat conf/local.conf | grep "${CONFLINE}" > /dev/null
 local_conf_info=$?
@@ -37,8 +37,8 @@ local_memory_info=$?
 cat conf/local.conf | grep "${LICENCE}" > /dev/null
 local_licn_info=$?
 
-# cat conf/local.conf | grep "${INIT_MAN}" > /dev/null
-# local_init_man_info=$?
+cat conf/local.conf | grep "${INIT_MAN}" > /dev/null
+local_init_man_info=$?
 
 # Add above params to local.conf
 if [ $local_conf_info -ne 0 ];then
@@ -70,12 +70,12 @@ else
 	echo "${LICENCE} already exists in the local.conf file"
 fi
 
-# if [ $local_init_man_info -ne 0 ];then
-#     echo "Append ${INIT_MAN} in the local.conf file"
-# 	echo ${INIT_MAN} >> conf/local.conf
-# else
-# 	echo "${INIT_MAN} already exists in the local.conf file"
-# fi
+if [ $local_init_man_info -ne 0 ];then
+    echo "Append ${INIT_MAN} in the local.conf file"
+	echo ${INIT_MAN} >> conf/local.conf
+else
+	echo "${INIT_MAN} already exists in the local.conf file"
+fi
 
 # ADD raspberrypi layer
 bitbake-layers show-layers | grep "meta-raspberrypi" > /dev/null
