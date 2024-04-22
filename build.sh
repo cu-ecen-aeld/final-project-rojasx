@@ -88,15 +88,26 @@ else
 	echo "layer meta-raspberrypi already exists"
 fi
 
-# ADD openembedded layer
-bitbake-layers show-layers | grep "meta-openembedded" > /dev/null
+# ADD oe layer
+bitbake-layers show-layers | grep "meta-oe" > /dev/null
 layer_info=$?
 
 if [ $layer_info -ne 0 ];then
-	echo "Adding meta-openembedded layer"
-	bitbake-layers add-layer ../meta-openembedded
+	echo "Adding meta-oe layer"
+	bitbake-layers add-layer ../meta-openembedded/meta-oe
 else
-	echo "layer meta-openembedded already exists"
+	echo "layer meta-oe already exists"
+fi
+
+# Add python layer
+bitbake-layers show-layers | grep "meta-python" > /dev/null
+layer_info=$?
+
+if [ $layer_info -ne 0 ];then
+    echo "Adding meta-python layer"
+	bitbake-layers add-layer ../meta-openembedded/meta-python
+else
+	echo "layer meta-python already exists"
 fi
 
 # ADD forceapp layer

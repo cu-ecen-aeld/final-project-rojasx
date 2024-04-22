@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/rojasx/final-project-forceapp.git;protocol=ssh;b
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "e9831049121f9ecc16b6d1d211d16ad75ebd9252"
+SRCREV = "fef6dcc02fca621fe8af0936cc4d5a1798f51e60"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -24,9 +24,9 @@ FILES:${PN} += "${datadir}/misc/test_gpio.py"
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
 TARGET_LDFLAGS += "-pthread -lrt"
-inherit update-rc.d
-INITSCRIPT_PACKAGES="${PN}"
-#INITSCRIPT_NAME:${PN}="aesdsocket-start-stop.sh"
+# inherit update-rc.d
+# INITSCRIPT_PACKAGES="${PN}"
+# INITSCRIPT_NAME:${PN}="aesdsocket-start-stop.sh"
 
 do_configure () {
 	:

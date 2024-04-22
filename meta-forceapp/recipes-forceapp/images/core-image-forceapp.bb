@@ -1,4 +1,4 @@
-require recipes-core/images/core-image-base.bb
+inherit core-image
 
 CORE_IMAGE_EXTRA_INSTALL += "openssh openssl openssh-sftp-server"
 CORE_IMAGE_EXTRA_INSTALL += "ethtool"
