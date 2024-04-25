@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/rojasx/final-project-forceapp.git;protocol=ssh;b
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "fef6dcc02fca621fe8af0936cc4d5a1798f51e60"
+SRCREV = "57967bbe6791c51a25d32d9e31eaabb5cebe6aba"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -20,6 +20,9 @@ S = "${WORKDIR}/git/forceapp"
 # See https://git.yoctoproject.org/poky/plain/meta/conf/bitbake.conf?h=kirkstone
 FILES:${PN} += "${datadir}/misc/set_ip.sh"
 FILES:${PN} += "${datadir}/misc/test_gpio.py"
+FILES:${PN} += "${datadir}/misc/rpi_server.py"
+FILES:${PN} += "${datadir}/misc/forceapp_startup.sh"
+FILES:${PN} += "${sysconfdir}/systemd/system/forceapp.service"
 
 # TODO: customize these as necessary for any libraries you need for your application
 # (and remove comment)
@@ -36,6 +39,10 @@ do_configure () {
 # 	oe_runmake
 # }
 
+inherit systemd
+SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_SERVICE_${PN} = "forceapp.service"
+
 do_install () {
 	# TODO: Install your binaries/scripts here.
 	# Be sure to install the target directory with install -d first
@@ -49,4 +56,11 @@ do_install () {
 	install -d ${D}${datadir}/misc
 	install -m 0755 ${S}/set_ip.sh ${D}${datadir}/misc/
 	install -m 0755 ${S}/test_gpio.py ${D}${datadir}/misc/
+	install -m 0755 ${S}/rpi_server.py ${D}${datadir}/misc/
+	install -m 0755 ${S}/forceapp_startup.sh ${D}${datadir}/misc/
+
+	# For systemd at startup
+	install -d ${D}${sysconfdir}/systemd/system
+	install -m 0755 ${S}/forceapp.service ${D}${sysconfdir}/systemd/system
+
 }
