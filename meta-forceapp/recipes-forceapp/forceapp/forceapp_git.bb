@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/rojasx/final-project-forceapp.git;protocol=ssh;b
 
 PV = "1.0+git${SRCPV}"
 # TODO: set to reference a specific commit hash in your assignment repo
-SRCREV = "57967bbe6791c51a25d32d9e31eaabb5cebe6aba"
+SRCREV = "3a6930fbafd3cecd7e2564e01de949298a64bec6"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://docs.yoctoproject.org/ref-manual/variables.html?highlight=workdir#term-WORKDIR
@@ -41,7 +41,7 @@ do_configure () {
 
 inherit systemd
 SYSTEMD_AUTO_ENABLE = "enable"
-SYSTEMD_SERVICE_${PN} = "forceapp.service"
+SYSTEMD_SERVICE:${PN} = "forceapp.service"
 
 do_install () {
 	# TODO: Install your binaries/scripts here.
