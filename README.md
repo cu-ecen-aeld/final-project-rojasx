@@ -10,5 +10,7 @@ Link to [Final Project "Force App" Code Repo](https://github.com/rojasx/final-pr
 
 Link to [Schedule Table](https://github.com/users/rojasx/projects/2)
 
+Link to [Video Outline](https://github.com/cu-ecen-aeld/final-project-rojasx/wiki/Xavier's-Final-Project-Video)
+
 # yocto-assignments-base
 This project holds the Yocto build for the RP4, and is based on the base repository for AESD Yocto assignments.
